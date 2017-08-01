@@ -1,0 +1,41 @@
+#!/bin/sh
+
+SITE_CONF="site.conf.sample"
+
+if [ -n "$BASH_SOURCE" ]; then
+   SRCROOT="$(pwd $(dirname $BASH_SOURCE))"
+elif [ -n "$ZSH_NAME" ]; then
+   SRCROOT="`dirname $0`"
+else
+   SRCROOT="`pwd`"
+fi
+
+export SRCROOT
+
+INIT_SCRIPT=$SRCROOT/init-build-env
+
+if [ -z "$ZSH_NAME" ] && [ $0 -ef $INIT_SCRIPT ]; then
+   echo "Error: This script needs to be sourced. Please run as '. $INIT_SCRIPT'"
+   exit 1
+fi
+
+export TEMPLATECONF=$PWD/sources/meta-course/conf
+
+. sources/poky/oe-init-build-env
+
+# Save global variables that used by build system
+export BB_ENV_EXTRAWHITE="$BB_ENV_EXTRAWHITE SRCROOT"
+
+if [ "$?" != "0"  ] && [ -n "$BUILDDIR" ] ; then
+   unset BUILDDIR
+fi
+
+if [[ -f "$TEMPLATECONF/$SITE_CONF" ]]; then
+    if [[ -f "$BUILDDIR/conf/site.conf" ]]; then
+        echo "Note: site.conf found in you build/conf directory - omitting."
+    else
+        cp $TEMPLATECONF/$SITE_CONF $BUILDDIR/conf/site.conf ||:
+    fi
+
+fi
+
