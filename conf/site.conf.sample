@@ -1,0 +1,32 @@
+#
+# local.conf covers user settings, site.conf covers site specific information
+# such as proxy server addresses and optionally any shared download location
+#
+# SITE_CONF_VERSION is increased each time build/conf/site.conf
+# changes incompatibly
+SCONF_VERSION = "1"
+
+#
+# GL internal servers locations
+#
+SERVER_HTTP  = "http://"
+SERVER_GIT   = ""
+GIT_PROTOCOL = "ssh"
+
+#
+# Shared-state files from other locations
+#
+INHERIT += "own-mirrors"
+SOURCE_MIRROR_URL ?= "${SERVER_HTTP}/downloads/ "
+
+SSTATE_MIRRORS ?= "file://.* ${SERVER_HTTP}/sstate-cache/PATH;downloadfilename=PATH "
+
+SSTATE_MIRROR_ALLOW_NETWORK = "1"
+
+#
+# Default network settings
+#
+BB_NO_NETWORK = "0"
+BB_FETCH_PREMIRRORONLY = "0"
+
+CONNECTIVITY_CHECK_URIS = ""
