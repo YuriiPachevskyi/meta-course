@@ -1,0 +1,30 @@
+From e9d919d17d8916b2f41b5c48ff0c7c4c86b5cb27 Mon Sep 17 00:00:00 2001
+From: Yurii Pachevskyi <yurii.pachevskyi@globallogic.com>
+Date: Tue, 19 Sep 2017 17:28:39 +0300
+Subject: [PATCH] Enable serial port
+
+
+diff --git a/config.txt b/config.txt
+index 16db254..0de9738 100644
+--- a/config.txt
++++ b/config.txt
+@@ -724,7 +724,7 @@
+ ##              and SDRAM.
+ ##              Overclocking of h264_freq, v3d_freq and isp_freq is allowed.
+ ##
+-#force_turbo=0
++force_turbo=1
+ 
+ ## initial_turbo
+ ##     Enables turbo mode from boot for the given value in seconds (up to 60)
+@@ -1122,6 +1122,7 @@
+ ##     Default on.
+ ##
+ #dtparam=uart0=on
++enable_uart=1
+ 
+ ## watchdog
+ ##     Set to "on" to enable the hardware watchdog
+-- 
+2.7.4
+
