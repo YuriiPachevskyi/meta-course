@@ -1,0 +1,22 @@
+From a22c4be29f90e0da21b3a447c9311c3798c87d7e Mon Sep 17 00:00:00 2001
+From: Yurii Pachevskyi <yurii.pachevskyi@globallogic.com>
+Date: Wed, 4 Oct 2017 18:07:42 +0300
+Subject: [PATCH] Enable the onboard ALSA audio
+
+
+diff --git a/config.txt b/config.txt
+index 0de9738..437321a 100644
+--- a/config.txt
++++ b/config.txt
+@@ -1063,7 +1063,7 @@ force_turbo=1
+ ##
+ ##     Default off.
+ ##
+-#dtparam=audio=off
++dtparam=audio=on
+ 
+ ## i2c_arm
+ ##     Enable the ARM's i2c interface
+-- 
+2.7.4
+
