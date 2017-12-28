@@ -2,7 +2,6 @@ LICENSE = "CLOSED"
 
 inherit packagegroup
 
-RDEPENDS_${PN} = "\
-    rpi-config \
+RDEPENDS_${PN} = " \
     mc \
 "

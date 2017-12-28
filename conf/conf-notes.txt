@@ -1,3 +1,4 @@
 Common targets are:
 
 	rpi-example-image
+	rpi-example-image-dev
