@@ -7,6 +7,10 @@ LICENSE = "CLOSED"
 IMAGE_INSTALL += " \
     kernel-modules \
     packagegroup-core \
+    packagegroup-core \
+    packagegroup-debug-tweaks \
+    packagegroup-multimedia \
+    packagegroup-network \
 "
 
 IMAGE_FEATURES += "ssh-server-dropbear"
