@@ -1,0 +1,28 @@
+From b69fad5f8b38a9663c01cb018c2afd31ba47f66d Mon Sep 17 00:00:00 2001
+From: Daniil Krant <daniil.krant@globallogic.com>
+Date: Mon, 16 Apr 2018 16:50:11 +0300
+Subject: [PATCH] Setup USB sound card as a default one
+
+Signed-off-by: Daniil Krant <daniil.krant@globallogic.com>
+---
+ alsa.conf | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/conf/alsa.conf b/src/conf/alsa.conf
+index f22918f..9a0cf19 100644
+--- a/src/conf/alsa.conf
++++ b/src/conf/alsa.conf
+@@ -65,8 +65,8 @@ defaults.namehint.basic on
+ # show extended name hints
+ defaults.namehint.extended off
+ #
+-defaults.ctl.card 0
+-defaults.pcm.card 0
++defaults.ctl.card 1
++defaults.pcm.card 1
+ defaults.pcm.device 0
+ defaults.pcm.subdevice -1
+ defaults.pcm.nonblock 1
+-- 
+2.7.4
+
