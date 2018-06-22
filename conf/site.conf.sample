@@ -13,3 +13,11 @@ SERVER_HTTP  = "http://172.20.40.13"
 SERVER_GIT   = ""
 GIT_PROTOCOL = "ssh"
 
+#
+# Shared-state files from other locations
+#
+INHERIT += "own-mirrors"
+SSTATE_MIRROR_ALLOW_NETWORK = "1"
+SOURCE_MIRROR_URL ?= "${SERVER_HTTP}/downloads/ "
+SSTATE_MIRRORS ?= "file://.* ${SERVER_HTTP}/sstate-cache/PATH;downloadfilename=PATH "
+
